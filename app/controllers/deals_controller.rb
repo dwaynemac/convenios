@@ -8,7 +8,7 @@ class DealsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @deals = Deal.all
+    @deals = Deal.query(params[:q]).all
     respond_with @deals
   end
 

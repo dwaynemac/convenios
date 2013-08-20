@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :deal do
+    business
+    title 'a discount'
+    responsible_user 'dwayne'
   end
 end

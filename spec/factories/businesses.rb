@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :business do
+    name 'a business'
   end
 end

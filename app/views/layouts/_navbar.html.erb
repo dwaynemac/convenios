@@ -12,6 +12,12 @@
           <li><%= link_to "Link1", "/path1"  %></li>
           <li><%= link_to "Link2", "/path2"  %></li>
           <li><%= link_to "Link3", "/path3"  %></li>
+          <li class="divider-vertical"></li>
+
+          <form class="navbar-search" accept-charset="utf-8" action="<%= deals_path %>" id="navbar-search" method="get">
+            <input type="text" class="search-query" name="q" />
+          </form>
+
         </ul>
         <ul class="nav pull-right">
           <li class="dropdown">
