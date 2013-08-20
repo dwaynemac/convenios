@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
 
-  attr_accessible :name, :address, :url, :phone, :email
+  attr_accessible :name, :address, :url, :phone, :email, :city
 
   validates_presence_of :name
 

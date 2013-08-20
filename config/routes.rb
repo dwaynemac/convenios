@@ -5,7 +5,11 @@ Convenios::Application.routes.draw do
     post '/logout', to: "devise/cas_sessions#destroy"
   end
 
-  resources :deals
+  resources :deals do
+    member do
+      get :cancel
+    end
+  end
 
   root to: 'deals#index'
 end

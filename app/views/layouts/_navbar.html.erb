@@ -6,12 +6,10 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-      <a class="brand" href="#">Convenios</a>
+      <a class="brand" href="<%= deals_url %>"><%= t('navbar.title') %></a>
       <div class="container-fluid nav-collapse">
         <ul class="nav pull-left">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+          <li><%= link_to t('navbar.new_deal'), new_deal_url  %></li>
           <li class="divider-vertical"></li>
 
           <form class="navbar-search" accept-charset="utf-8" action="<%= deals_path %>" id="navbar-search" method="get">

@@ -26,6 +26,24 @@ class DealsController < ApplicationController
     end
   end
 
+  def update
+    @deal = Deal.find(params[:id])
+    if @deal.update_attributes(deal_params)
+      redirect_to deals_path, notice: t('deals.update.success')
+    else
+      redirect_to deals_path, alert: t('deals.update.error')
+    end
+  end
+
+  def cancel
+    @deal = Deal.find(params[:id])
+    if @deal.update_attribute(:ends_on, Date.today)
+      redirect_to deals_path, notice: t('deals.cancel.success')
+    else
+      redirect_to deals_path, alert: t('deals.cancel.error')
+    end
+  end
+
   private
 
   def deal_params

@@ -1,6 +1,6 @@
 class Deal < ActiveRecord::Base
 
-  attr_accessible :title, :description, :responsible_user, :business_id, :business_attributes, :began_on, :ends_on
+  attr_accessible :title, :description, :responsible_user, :responsible_account, :business_id, :business_attributes, :began_on, :ends_on
 
   validates_presence_of :business
   belongs_to :business

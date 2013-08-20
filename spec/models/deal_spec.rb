@@ -5,6 +5,7 @@ describe Deal do
 
   it { should validate_presence_of :business }
   it { should validate_presence_of :responsible_user }
+  it { should validate_presence_of :responsible_account }
   it { should validate_presence_of :title }
 
   describe "on creation" do

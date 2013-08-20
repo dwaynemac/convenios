@@ -25,14 +25,31 @@ es:
     attributes:
       title: "Titulo"
       description: "descripcion"
+      responsible: "Responsable"
+      title_example: "50% de descuento"
+      description_example: "50% de descuento de lunes a viernes. No incluye la propina."
   deals:
     new:
       business_fields: "Detalles del Negocio"
       deal_fields: "Detalles del convenio"
+    update:
+      success: "Convenio actualizado"
+      error: "No se pudo modificar el convenio"
+    cancel:
+      success: "Convenio cancelado"
+      error: "No se pudo cancelar el convenio"
+    index:
+      cancel_deal: "cancelar"
   business:
     attributes:
       name: "Nombre del Negocio"
       email: "email"
-      url: "url"
+      url: "Página web"
       phone: "telefono"
       address: "direccion"
+      city: "Ciudad"
+      description: "Descripción"
+      description_example: "Restaurant italiano, excelentes entradas."
+  navbar:
+    title: "Convenios"
+    new_deal: "Nuevo convenio"

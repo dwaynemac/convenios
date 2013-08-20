@@ -5,17 +5,18 @@
     </tr>
     <tr>
       <td><%= f.label :title, t('deal.attributes.title') %></td>
-      <td><%= f.text_field :title, class: 'form-control', placeholder: t('deal.attributes.title') %></td>
+      <td><%= f.text_field :title, class: 'form-control', placeholder: t('deal.attributes.title_example') %></td>
     </tr>
     <tr>
       <td><%= f.label :description %></td>
-      <td><%= f.text_area :description, class: 'form-control', placeholder: t('deal.attributes.description') %></td>
+      <td><%= f.text_area :description, class: 'form-control', placeholder: t('deal.attributes.description_example') %></td>
     </tr>
     <tr>
-      <td><%= f.label :resposible_user %></td>
+      <td><label><%= t('deal.attributes.responsible') %></label></td>
       <td>
-        <%= current_user.username %>
+        <%= current_user.username %> (<%= current_user.current_account.name %>)
         <%= f.hidden_field :responsible_user, value: current_user.username %>
+        <%= f.hidden_field :responsible_account, value: current_user.current_account.name %>
       </td>
     </tr>
     <tr>
@@ -27,12 +28,20 @@
         <td><%= b.text_field :name, class: 'form-control', placeholder: t('business.attributes.name') %></td>
       </tr>
       <tr>
+        <td><%= b.label :description, t('business.attributes.description') %></td>
+        <td><%= b.text_area :description, class: 'form-control', placeholder: t('business.attributes.description_example') %></td>
+      </tr>
+      <tr>
         <td><%= b.label :phone, t('business.attributes.phone') %></td>
         <td><%= b.phone_field :phone, class: 'form-control', placeholder: t('business.attributes.phone') %></td>
       </tr>
       <tr>
         <td><%= b.label :email, t('business.attributes.email') %></td>
         <td><%= b.email_field :email, class: 'form-control', placeholder: t('business.attributes.email') %></td>
+      </tr>
+      <tr>
+        <td><%= b.label :city, t('business.attributes.city') %></td>
+        <td><%= b.text_field :city, class: 'form-control', placeholder: t('business.attributes.city')%></td>
       </tr>
       <tr>
         <td><%= b.label :address, t('business.attributes.address') %></td>

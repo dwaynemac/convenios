@@ -6,6 +6,7 @@
     <th><%= t('deal.attributes.title') %></th>
     <th><%= t('deal.attributes.description') %></th>
     <th><%= t('deal.attributes.responsible_user') %></th>
+    <th></th>
   </tr>
   <%- @deals.each do |deal| -%>
     <tr>
@@ -15,8 +16,11 @@
       <td><%= deal.title %></td>
       <td><%= deal.description %></td>
       <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
+      <td>
+        <%- if current_user.username == deal.responsible_user -%>
+          <%= link_to t('deals.index.cancel_deal'), cancel_deal_path(deal.id), class: 'btn btn-mini btn-danger' %>
+        <%- end -%>
+      </td>
     </tr>
   <%- end -%>
 </table>
-
-<%= link_to t('deals.index.new'), new_deal_url, class: 'btn' %>
