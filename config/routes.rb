@@ -11,5 +11,10 @@ Convenios::Application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :deals, only: [:index]
+  end
+
+
   root to: 'deals#index'
 end
