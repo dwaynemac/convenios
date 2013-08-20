@@ -1,11 +1,15 @@
 class DealsController < ApplicationController
 
+  # Leave index.json PUBLIC
+  [:authenticate_user!,:require_padma_account,:set_current_account,:set_timezone,:set_locale].each do |auth_filter|
+    skip_filter auth_filter, only: :index, if: :format_json?
+  end
+
+  respond_to :html, :json
+
   def index
     @deals = Deal.all
-    respond_to do |format|
-      format.html
-      format.json
-    end
+    respond_with @deals
   end
 
   def new
@@ -31,6 +35,10 @@ class DealsController < ApplicationController
         :responsible_user,
         business_attributes: [:name,:phone,:email,:url,:address]
     )
+  end
+
+  def format_json?
+    request.format.json?
   end
 
 end

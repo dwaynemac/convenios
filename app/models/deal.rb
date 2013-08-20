@@ -9,4 +9,15 @@ class Deal < ActiveRecord::Base
   validates_presence_of :responsible_user
   validates_presence_of :title
 
+  def as_json(args={})
+    {
+        title: title,
+        description: description,
+        business: {
+            name: business.name,
+            address: business.address
+        }
+    }
+  end
+
 end
