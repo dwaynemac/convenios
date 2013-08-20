@@ -9,6 +9,10 @@ gem 'protected_attributes' # Rails 4 support for Mass Assignment Security
 gem 'devise', github: 'plataformatec/devise', :branch => 'rails4'
 gem 'devise_cas_authenticatable'
 
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
+
 gem 'accounts_client'
 
 group :development, :test do
