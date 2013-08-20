@@ -19,27 +19,20 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   hello: "Hello world"
   deal:
     attributes:
-      title: "Title"
-      description: "description"
-      responsible_user: "Responsible Teacher"
+      title: "Titulo"
+      description: "descripcion"
   deals:
     new:
-      business_fields: "Business details"
-      deal_fields: "Deal details"
-    create:
-      success: "Business created"
-    index:
-      new: "New deal"
+      business_fields: "Detalles del Negocio"
+      deal_fields: "Detalles del convenio"
   business:
     attributes:
-      name: "Business name"
+      name: "Nombre del Negocio"
       email: "email"
       url: "url"
-      phone: "phone"
-      address: "address"
-    attribute:
-      phone: "phone"
+      phone: "telefono"
+      address: "direccion"

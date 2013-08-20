@@ -1,0 +1,50 @@
+<%= form_for @deal do |f| %>
+  <table class="table table-responsive">
+    <tr>
+      <th colspan="2"><%= t('deals.new.deal_fields') %></th>
+    </tr>
+    <tr>
+      <td><%= f.label :title, t('deal.attributes.title') %></td>
+      <td><%= f.text_field :title, class: 'form-control', placeholder: t('deal.attributes.title') %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description, class: 'form-control', placeholder: t('deal.attributes.description') %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :resposible_user %></td>
+      <td>
+        <%= current_user.username %>
+        <%= f.hidden_field :responsible_user, value: current_user.username %>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2"><%= t('deals.new.business_fields') %></th>
+    </tr>
+    <%= f.fields_for :business_attributes do |b| %>
+      <tr>
+        <td><%= b.label :name, t('business.attributes.name') %></td>
+        <td><%= b.text_field :name, class: 'form-control', placeholder: t('business.attributes.name') %></td>
+      </tr>
+      <tr>
+        <td><%= b.label :phone, t('business.attributes.phone') %></td>
+        <td><%= b.phone_field :phone, class: 'form-control', placeholder: t('business.attributes.phone') %></td>
+      </tr>
+      <tr>
+        <td><%= b.label :email, t('business.attributes.email') %></td>
+        <td><%= b.email_field :email, class: 'form-control', placeholder: t('business.attributes.email') %></td>
+      </tr>
+      <tr>
+        <td><%= b.label :address, t('business.attributes.address') %></td>
+        <td><%= b.text_field :address, class: 'form-control', placeholder: t('business.attributes.address') %></td>
+      </tr>
+      <tr>
+        <td><%= b.label :url, t('business.attributes.url') %></td>
+        <td><%= b.url_field :url, class: 'form-control', placeholder: t('business.attributes.url') %></td>
+      </tr>
+    <%- end -%>
+    <tr>
+      <td colspan="2"><%= f.submit :create, class: "btn btn-default" %></td>
+    </tr>
+  </table>
+<%- end -%>

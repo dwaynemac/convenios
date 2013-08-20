@@ -1,0 +1,22 @@
+<table class="table table-striped table-responsive">
+  <tr>
+    <th>#</th>
+    <th><%= t('business.attributes.name') %></th>
+    <th><%= t('business.attributes.address') %></th>
+    <th><%= t('deal.attributes.title') %></th>
+    <th><%= t('deal.attributes.description') %></th>
+    <th><%= t('deal.attributes.responsible_user') %></th>
+  </tr>
+  <%- @deals.each do |deal| -%>
+    <tr>
+      <td><%= deal.id %></td>
+      <td><%= deal.business.name %></td>
+      <td><%= deal.business.address %></td>
+      <td><%= deal.title %></td>
+      <td><%= deal.description %></td>
+      <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
+    </tr>
+  <%- end -%>
+</table>
+
+<%= link_to t('deals.index.new'), new_deal_url, class: 'btn' %>

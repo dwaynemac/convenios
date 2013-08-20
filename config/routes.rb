@@ -5,4 +5,7 @@ Convenios::Application.routes.draw do
     post '/logout', to: "devise/cas_sessions#destroy"
   end
 
+  resources :deals
+
+  root to: 'deals#index'
 end
