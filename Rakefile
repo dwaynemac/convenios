@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-PadmaRootApp::Application.load_tasks
+Convenios::Application.load_tasks
