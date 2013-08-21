@@ -30,13 +30,10 @@ class DealsController < ApplicationController
     end
   end
 
-  def cancel
+  def destroy
     @deal = Deal.find(params[:id])
-    if @deal.update_attribute(:ends_on, Date.today)
-      redirect_to deals_path, notice: t('deals.cancel.success')
-    else
-      redirect_to deals_path, alert: t('deals.cancel.error')
-    end
+    @deal.destroy
+    redirect_to deals_path, notice: t('deals.cancel.success')
   end
 
   private

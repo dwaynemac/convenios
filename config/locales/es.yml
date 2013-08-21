@@ -40,6 +40,7 @@ es:
       error: "No se pudo cancelar el convenio"
     index:
       cancel_deal: "cancelar"
+      confirm_destroy: "Seguro que desea eliminar este convenio?"
   business:
     attributes:
       name: "Nombre del Negocio"

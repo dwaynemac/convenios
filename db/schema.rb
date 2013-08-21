@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130820200327) do
+ActiveRecord::Schema.define(version: 20130821012125) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 20130820200327) do
     t.text     "description"
     t.string   "responsible_user"
     t.integer  "business_id"
-    t.date     "began_on"
-    t.date     "ends_on"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "responsible_account"

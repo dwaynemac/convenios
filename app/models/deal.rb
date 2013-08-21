@@ -1,15 +1,14 @@
 class Deal < ActiveRecord::Base
 
-  attr_accessible :title, :description, :responsible_user, :responsible_account, :business_id, :business_attributes, :began_on, :ends_on
+  attr_accessible :title, :description, :responsible_user, :responsible_account, :business_id, :business_attributes
 
   validates_presence_of :business
   belongs_to :business
   accepts_nested_attributes_for :business
 
   validates_presence_of :responsible_user
+  validates_presence_of :responsible_account
   validates_presence_of :title
-
-  before_create :set_began_on
 
   def self.query(query_string)
     if query_string.blank?
@@ -31,14 +30,6 @@ class Deal < ActiveRecord::Base
             address: business.address
         }
     }
-  end
-
-  private
-
-  def set_began_on
-    if began_on.nil?
-      self.began_on = Date.today
-    end
   end
 
 end

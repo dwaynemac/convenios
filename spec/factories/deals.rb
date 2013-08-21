@@ -5,5 +5,6 @@ FactoryGirl.define do
     business
     title 'a discount'
     responsible_user 'dwayne'
+    responsible_account 'cervino'
   end
 end
