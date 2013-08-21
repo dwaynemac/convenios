@@ -5,7 +5,17 @@ class DealsController < ApplicationController
   respond_to :html
 
   def index
-    @deals = @deals.query(params[:q]).all
+    # TODO make less w.s. calls
+    nid = current_user.current_account.padma.nucleo_id # webservice call
+    if nid
+      s = NucleoClient::School.find(nid)                 # webservice call
+      @federation = s.federation                         # webservice call
+      @deals = @deals.where(federation_id: @federation.id)
+    end
+
+    @query = params[:q]
+
+    @deals = @deals.query(@query).all
     respond_with @deals
   end
 

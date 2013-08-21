@@ -44,6 +44,7 @@ es:
     index:
       cancel_deal: "cancelar"
       confirm_destroy: "Seguro que desea eliminar este convenio?"
+      all_deals: "Convenios"
   business:
     attributes:
       name: "Nombre del Negocio"

@@ -123,7 +123,7 @@ GEM
     mime-types (1.24)
     minitest (4.7.5)
     multi_json (1.7.9)
-    nucleo_client (0.0.1)
+    nucleo_client (0.0.3)
       logical_model (~> 0.5.6)
       protected_attributes
       railties (>= 3.1)
@@ -236,7 +236,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   less-rails
-  nucleo_client (= 0.0.1)
+  nucleo_client (~> 0.0.3)
   pg
   protected_attributes
   rails (= 4.0.0)

@@ -16,7 +16,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem 'twitter-bootstrap-rails'
 
 gem 'accounts_client', '~> 0.0.19'
-gem 'nucleo_client', '0.0.1'
+gem 'nucleo_client', '~> 0.0.3'
 
 group :development, :test do
   gem 'sqlite3'

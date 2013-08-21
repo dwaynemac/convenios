@@ -1,3 +1,13 @@
+<ol class="breadcrumb">
+  <li><%= link_to t('deals.index.all_deals'), deals_path %></li>
+  <%- if @federation -%>
+    <span class="divider"> / </span></li><li><%= link_to @federation.name, deals_path %></li>
+  <%- end -%>
+  <%- if @query -%>
+    <span class="divider"> / </span></li><li><%= link_to @query, deals_path(q: @query) %></li>
+  <%- end -%>
+</ol>
+
 <table class="table table-striped table-responsive">
   <tr>
     <th>#</th>
