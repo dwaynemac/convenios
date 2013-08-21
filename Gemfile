@@ -4,6 +4,8 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 
+gem 'rails_12factor', group: :production
+
 gem 'cancan'
 gem 'protected_attributes' # Rails 4 support for Mass Assignment Security
 gem 'devise', github: 'plataformatec/devise', :branch => 'rails4'
