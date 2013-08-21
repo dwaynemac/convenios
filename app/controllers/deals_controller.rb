@@ -8,18 +8,14 @@ class DealsController < ApplicationController
     authorize! :read, Deal
     @deals = Deal.scoped
 
-    nid = current_user.current_account.padma.nucleo_id # webservice call
+    nid = current_user.current_account.padma.nucleo_id
     if nid
-      s = NucleoClient::School.find(nid)                 # webservice call
-      params[:federation_id] = s.federation_id
-      index
-      render action: :index
+      s = NucleoClient::School.find(nid)
+      redirect_to deals_path(federation_id: s.federation_id)
     else
       redirect_to deals_path, alert: t('deals.index.couldnt_get_federation')
-      return
     end
   end
-
 
   def index
     if params[:federation_id]
