@@ -15,8 +15,8 @@
       <td><label><%= t('deal.attributes.responsible') %></label></td>
       <td>
         <%= current_user.username %> (<%= current_user.current_account.name %>)
-        <%= f.hidden_field :responsible_user, value: current_user.username %>
-        <%= f.hidden_field :responsible_account, value: current_user.current_account.name %>
+        <%= f.hidden_field :local_user_id, value: current_user.id %>
+        <%= f.hidden_field :local_account_id, value: current_user.current_account.id %>
       </td>
     </tr>
     <tr>

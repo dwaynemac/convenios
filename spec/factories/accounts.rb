@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :account do
+    sequence(:name){|n|"asf#{n}"}
   end
 end

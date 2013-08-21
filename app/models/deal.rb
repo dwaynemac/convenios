@@ -1,14 +1,25 @@
 class Deal < ActiveRecord::Base
 
-  attr_accessible :title, :description, :responsible_user, :responsible_account, :business_id, :business_attributes
+  attr_accessible :title,
+                  :description,
+                  :local_user_id,
+                  :local_account_id,
+                  :business_id,
+                  :business_attributes
+
+  belongs_to :user, foreign_key: :local_user_id
+  validates_presence_of :user
+
+  belongs_to :account, foreign_key: :local_account_id
+  validates_presence_of :account
 
   validates_presence_of :business
   belongs_to :business
   accepts_nested_attributes_for :business
 
-  validates_presence_of :responsible_user
-  validates_presence_of :responsible_account
   validates_presence_of :title
+
+  before_save :set_federation
 
   def self.query(query_string)
     if query_string.blank?
@@ -30,6 +41,39 @@ class Deal < ActiveRecord::Base
             address: business.address
         }
     }
+  end
+
+  def responsible_user
+    user.try :username
+  end
+
+  def responsible_account
+    account.try :name
+  end
+
+  private
+
+  def set_federation
+
+    if local_account_id_changed?
+      nid = account.padma.nucleo_id
+      if nid
+        s = NucleoClient::School.find(nid)
+        if s
+          self.federation_id = s.federation_id
+        end
+      end
+    end
+
+    if federation_id_changed?
+      f = NucleoClient::Federation.find(federation_id)
+      if f
+        self.cached_federation_name= f.name
+      else
+        self.cached_federation_name= nil
+      end
+    end
+
   end
 
 end

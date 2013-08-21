@@ -7,6 +7,7 @@
     <th><%= t('deal.attributes.description').capitalize %></th>
     <th><%= t('deal.attributes.responsible_user').capitalize %></th>
     <th><%= t('deal.attributes.responsible_account').capitalize %></th>
+    <th><%= t('deal.attributes.federation') %></th>
     <th></th>
   </tr>
   <%- @deals.each do |deal| -%>
@@ -18,6 +19,7 @@
       <td><%= deal.description %></td>
       <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
       <td><%= deal.responsible_account.gsub('.|_',' ').titleize %></td>
+      <td><%= deal.cached_federation_name %></td>
       <td>
         <%- if current_user.username == deal.responsible_user -%>
           <%= link_to t('deals.index.cancel_deal'),

@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :deal do
     business
     title 'a discount'
-    responsible_user 'dwayne'
-    responsible_account 'cervino'
+    local_user_id { User.first.id }
+    local_account_id { Account.first.id }
   end
 end
