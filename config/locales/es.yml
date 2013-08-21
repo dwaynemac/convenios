@@ -28,6 +28,8 @@ es:
       responsible: "Responsable"
       title_example: "50% de descuento"
       description_example: "50% de descuento de lunes a viernes. No incluye la propina."
+      responsible_account: "Escuela responsable"
+      responsible_user: "Usuario Responsable"
   deals:
     new:
       business_fields: "Detalles del Negocio"

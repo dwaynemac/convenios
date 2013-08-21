@@ -1,11 +1,12 @@
 <table class="table table-striped table-responsive">
   <tr>
     <th>#</th>
-    <th><%= t('business.attributes.name') %></th>
-    <th><%= t('business.attributes.address') %></th>
-    <th><%= t('deal.attributes.title') %></th>
-    <th><%= t('deal.attributes.description') %></th>
-    <th><%= t('deal.attributes.responsible_user') %></th>
+    <th><%= t('business.attributes.name').capitalize %></th>
+    <th><%= t('business.attributes.address').capitalize %></th>
+    <th><%= t('deal.attributes.title').capitalize %></th>
+    <th><%= t('deal.attributes.description').capitalize %></th>
+    <th><%= t('deal.attributes.responsible_user').capitalize %></th>
+    <th><%= t('deal.attributes.responsible_account').capitalize %></th>
     <th></th>
   </tr>
   <%- @deals.each do |deal| -%>
@@ -16,6 +17,7 @@
       <td><%= deal.title %></td>
       <td><%= deal.description %></td>
       <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
+      <td><%= deal.responsible_account.gsub('.|_',' ').titleize %></td>
       <td>
         <%- if current_user.username == deal.responsible_user -%>
           <%= link_to t('deals.index.cancel_deal'),
