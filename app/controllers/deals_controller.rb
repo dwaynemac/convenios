@@ -13,6 +13,7 @@ class DealsController < ApplicationController
       s = NucleoClient::School.find(nid)                 # webservice call
       params[:federation_id] = s.federation_id
       index
+      render action: :index
     else
       redirect_to deals_path, alert: t('deals.index.couldnt_get_federation')
       return
