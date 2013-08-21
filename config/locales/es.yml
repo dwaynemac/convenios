@@ -45,6 +45,7 @@ es:
       cancel_deal: "cancelar"
       confirm_destroy: "Seguro que desea eliminar este convenio?"
       all_deals: "Convenios"
+      couldnt_get_federation: "No pudimos descubrir cuál es tu federación"
   business:
     attributes:
       name: "Nombre del Negocio"

@@ -5,12 +5,16 @@ Convenios::Application.routes.draw do
     post '/logout', to: "devise/cas_sessions#destroy"
   end
 
-  resources :deals
+  resources :deals do
+    collection do
+      get :my_federation
+    end
+  end
 
   namespace :api do
     resources :deals, only: [:index]
   end
 
 
-  root to: 'deals#index'
+  root to: 'deals#my_federation'
 end

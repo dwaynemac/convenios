@@ -1,16 +1,29 @@
 class DealsController < ApplicationController
 
-  load_and_authorize_resource
+  load_and_authorize_resource except: :my_federation
 
   respond_to :html
 
-  def index
-    # TODO make less w.s. calls
+  def my_federation
+    authorize! :read, Deal
+    @deals = Deal.scoped
+
     nid = current_user.current_account.padma.nucleo_id # webservice call
     if nid
       s = NucleoClient::School.find(nid)                 # webservice call
-      @federation = s.federation                         # webservice call
-      @deals = @deals.where(federation_id: @federation.id)
+      params[:federation_id] = s.federation_id
+      index
+    else
+      redirect_to deals_path, alert: t('deals.index.couldnt_get_federation')
+      return
+    end
+  end
+
+
+  def index
+    if params[:federation_id]
+      @federation = NucleoClient::Federation.find(params[:federation_id])
+      @deals = @deals.where(federation_id: @federation.id) if @federation
     end
 
     @query = params[:q]
