@@ -41,8 +41,8 @@ class DealsController < ApplicationController
     params.require(:deal).permit(
         :title,
         :description,
-        :responsible_user,
-        :responsible_account,
+        :local_user_id,
+        :local_account_id,
         business_attributes: [:name,:phone,:email,:url,:address,:city]
     )
   end
