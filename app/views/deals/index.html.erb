@@ -18,7 +18,11 @@
       <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
       <td>
         <%- if current_user.username == deal.responsible_user -%>
-          <%= link_to t('deals.index.cancel_deal'), deal_path(deal.id), method: :delete, confirm: t('deals.index.confirm_destroy'), class: 'btn btn-mini btn-danger' %>
+          <%= link_to t('deals.index.cancel_deal'),
+                      deal_path(deal.id),
+                      method: :delete,
+                      confirm: t('deals.index.confirm_destroy'),
+                      class: 'btn btn-mini btn-danger' %>
         <%- end -%>
       </td>
     </tr>
