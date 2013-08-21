@@ -55,7 +55,8 @@ class Deal < ActiveRecord::Base
 
   def set_federation
 
-    if local_account_id_changed?
+
+    if federation_id.nil? && account.present?
       nid = account.padma.nucleo_id
       if nid
         s = NucleoClient::School.find(nid)
