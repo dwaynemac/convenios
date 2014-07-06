@@ -4,17 +4,21 @@ ruby '2.0.0'
 
 gem 'rails', '4.0.0'
 
+gem 'figaro'
+
 gem 'cancan'
 gem 'protected_attributes' # Rails 4 support for Mass Assignment Security
-gem 'devise', github: 'plataformatec/devise', :branch => 'rails4'
+gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'devise_cas_authenticatable'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
-gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
+
+# Inplace editor
+gem 'best_in_place', github: 'afalkear/best_in_place_post'
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
@@ -36,7 +40,7 @@ group :development, :test do
   gem 'binding_of_caller'
 
   gem 'foreman'
-  gem 'subcontractor', '~> 0.6.1'
+  #gem 'subcontractor', '~> 0.6.1'
 end
 
 group :production do

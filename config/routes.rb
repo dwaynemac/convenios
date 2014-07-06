@@ -5,6 +5,7 @@ Convenios::Application.routes.draw do
     post '/logout', to: "devise/cas_sessions#destroy"
   end
 
+  resources :businesses, only: [:update]
   resources :deals do
     collection do
       get :my_federation

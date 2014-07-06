@@ -42,7 +42,7 @@ es:
       success: "Convenio cancelado"
       error: "No se pudo cancelar el convenio"
     index:
-      cancel_deal: "cancelar"
+      cancel_deal: "cancelar convenio"
       confirm_destroy: "Seguro que desea eliminar este convenio?"
       all_deals: "Convenios"
       couldnt_get_federation: "No pudimos descubrir cuál es tu federación"

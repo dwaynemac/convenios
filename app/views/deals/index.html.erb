@@ -23,15 +23,15 @@
   <%- @deals.each do |deal| -%>
     <tr>
       <td><%= deal.id %></td>
-      <td><%= deal.business.name %></td>
-      <td><%= deal.business.address %></td>
-      <td><%= deal.title %></td>
-      <td><%= deal.description %></td>
-      <td><%= deal.responsible_user.gsub('.',' ').titleize %></td>
-      <td><%= deal.responsible_account.gsub('.|_',' ').titleize %></td>
+      <td><%= best_in_place_if can?(:update, deal.business), deal.business, :name, type: :input %></td>
+      <td><%= best_in_place_if can?(:update, deal.business), deal.business, :address, type: :input %></td>
+      <td><%= bip deal, :title %></td>
+      <td><%= bip deal, :description, type: :textarea %></td>
+      <td><%= deal.responsible_user %></td>
+      <td><%= deal.responsible_account %></td>
       <td><%= deal.cached_federation_name %></td>
       <td>
-        <%- if current_user.username == deal.responsible_user -%>
+        <%- if can?(:destroy,deal) -%>
           <%= link_to t('deals.index.cancel_deal'),
                       deal_path(deal.id),
                       method: :delete,

@@ -2,10 +2,12 @@ class User < ActiveRecord::Base
   attr_accessible :username, :current_account_id
   devise :cas_authenticatable
 
-  belongs_to :current_account, :class_name => "Account", :foreign_key => "current_account_id"
+  belongs_to :current_account, class_name: "Account", foreign_key: "current_account_id"
 
   validates_uniqueness_of :username
   validates_presence_of :username
+
+  has_many :deals, foreign_key: :local_user_id
 
   include Accounts::IsAUser
 

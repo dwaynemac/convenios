@@ -2,7 +2,7 @@ class DealsController < ApplicationController
 
   load_and_authorize_resource except: :my_federation
 
-  respond_to :html
+  respond_to :html, :json
 
   def my_federation
     authorize! :read, Deal
@@ -43,10 +43,18 @@ class DealsController < ApplicationController
   end
 
   def update
-    if @deal.update_attributes(deal_params)
-      redirect_to deals_path, notice: t('deals.update.success')
-    else
-      redirect_to deals_path, alert: t('deals.update.error')
+    success = @deal.update_attributes(deal_params)
+    respond_to do |format|
+      format.html do
+        if success
+          redirect_to deals_path, notice: t('deals.update.success')
+        else
+          redirect_to deals_path, alert: t('deals.update.error')
+        end
+      end
+      format.json do
+        respond_with_bip @deal
+      end
     end
   end
 
