@@ -5,3 +5,5 @@
 /tmp
 /.env
 Procfile.dev
+*.swp
+config/application.yml

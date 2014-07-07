@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
 gem 'rails', '4.0.0'
 
@@ -11,7 +11,6 @@ gem 'protected_attributes' # Rails 4 support for Mass Assignment Security
 gem 'devise', github: 'plataformatec/devise', branch: 'rails4'
 gem 'devise_cas_authenticatable'
 
-gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
