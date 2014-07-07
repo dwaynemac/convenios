@@ -8,29 +8,26 @@
   <%- end -%>
 </ol>
 
-<table class="table table-striped table-responsive">
+<div class="alert">
+  <strong>Para editar</strong> La mayoría de los campos son editables haciendo click sobre ellos.
+</div>
+
+<table class="table table-responsive">
   <tr>
     <th>#</th>
     <th><%= t('business.attributes.name').capitalize %></th>
-    <th><%= t('business.attributes.address').capitalize %></th>
     <th><%= t('deal.attributes.title').capitalize %></th>
-    <th><%= t('deal.attributes.description').capitalize %></th>
-    <th><%= t('deal.attributes.responsible_user').capitalize %></th>
     <th><%= t('deal.attributes.responsible_account').capitalize %></th>
-    <th><%= t('deal.attributes.federation') %></th>
     <th></th>
   </tr>
   <%- @deals.each do |deal| -%>
     <tr>
       <td><%= deal.id %></td>
       <td><%= best_in_place_if can?(:update, deal.business), deal.business, :name, type: :input %></td>
-      <td><%= best_in_place_if can?(:update, deal.business), deal.business, :address, type: :input %></td>
       <td><%= bip deal, :title %></td>
-      <td><%= bip deal, :description, type: :textarea %></td>
-      <td><%= deal.responsible_user %></td>
-      <td><%= deal.responsible_account %></td>
-      <td><%= deal.cached_federation_name %></td>
+      <td><%= deal.responsible_account %>(<%= deal.responsible_user %>)</td>
       <td>
+        <button type="button" class="btn btn-mini" data-toggle="showHide" data-target="#details-<%= deal.id %>">detalles</button>
         <%- if can?(:destroy,deal) -%>
           <%= link_to t('deals.index.cancel_deal'),
                       deal_path(deal.id),
@@ -39,6 +36,19 @@
                       class: 'btn btn-mini btn-danger' %>
         <%- end -%>
       </td>
+    </tr>
+    <tr id="details-<%= deal.id %>" class="hide">
+      <td colspan="9"><div>
+        <h3><%= best_in_place_if can?(:update, deal.business), deal.business, :name, type: :input %></h3>
+        <h4><%= bip deal, :title %></h4>
+        <p><%= bip deal, :description, type: :textarea %></p>
+        <address>
+          Dir: <%= best_in_place_if can?(:update, deal.business), deal.business, :address, type: :input %><br/>
+          Tel: <%= best_in_place_if can?(:update, deal.business), deal.business, :phone, type: :input %><br/>
+          Email: <%= best_in_place_if can?(:update, deal.business), deal.business, :email, type: :input %><br/>
+          Web: <%= best_in_place_if can?(:update, deal.business), deal.business, :url, type: :input %><br/>
+        </address>
+      </div></td>
     </tr>
   <%- end -%>
 </table>

@@ -9,7 +9,7 @@
       <a class="brand" href="<%= root_url %>"><%= t('navbar.title') %></a>
       <div class="container-fluid nav-collapse">
         <ul class="nav pull-left">
-          <li><%= link_to t('navbar.new_deal'), new_deal_url  %></li>
+          <li><span class="glyphicon glyphicon-plus"></span><%= link_to t('navbar.new_deal'), new_deal_url  %></li>
           <li class="divider-vertical"></li>
 
           <form class="navbar-search" accept-charset="utf-8" action="<%= deals_path %>" id="navbar-search" method="get">
