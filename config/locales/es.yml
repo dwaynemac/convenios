@@ -56,6 +56,10 @@ es:
       city: "Ciudad"
       description: "Descripción"
       description_example: "Restaurant italiano, excelentes entradas."
+      lat: "Latitud"
+      lat_example: ""
+      lng: "Longitud"
+      lng_example: ""
   navbar:
     title: "Convenios"
     new_deal: "Nuevo convenio"
