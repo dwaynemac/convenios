@@ -15,7 +15,7 @@
   <%- end -%>
   <%= f.semantic_fields_for :business_attributes do |b| %>
     <%= b.inputs do %>
-      <%- %W(name description phone email city address url).each do |att| -%>
+      <%- %W(name description phone email city address url lat lng).each do |att| -%>
         <%= b.input att, label: t("business.attributes.#{att}"), placeholder: t("business.attributes.#{att}_example", default: t("business.attributes.#{att}")) %>
       <%- end -%>
     <%- end -%>

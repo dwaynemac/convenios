@@ -47,6 +47,8 @@
           Tel: <%= best_in_place_if can?(:update, deal.business), deal.business, :phone, type: :input %><br/>
           Email: <%= best_in_place_if can?(:update, deal.business), deal.business, :email, type: :input %><br/>
           Web: <%= best_in_place_if can?(:update, deal.business), deal.business, :url, type: :input %><br/>
+          Lat: <%= best_in_place_if can?(:update, deal.business), deal.business, :lat, type: :input %><br/>
+          Lng: <%= best_in_place_if can?(:update, deal.business), deal.business, :lng, type: :input %><br/>
         </address>
       </div></td>
     </tr>
