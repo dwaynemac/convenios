@@ -40,7 +40,12 @@ class Deal < ActiveRecord::Base
         business_name: business.name,
         business: {
             name: business.name,
+            description: business.description,
             address: business.address,
+            city: business.city,
+            email: business.email,
+            phone: business.phone,
+            url: business.url,
             latitude: business.lat,
             longitude: business.lng
         }
