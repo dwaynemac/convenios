@@ -34,11 +34,15 @@ class Deal < ActiveRecord::Base
 
   def as_json(args={})
     {
+        id: id,
         title: title,
         description: description,
+        business_name: business.name,
         business: {
             name: business.name,
-            address: business.address
+            address: business.address,
+            latitude: business.lat,
+            longitude: business.lng
         }
     }
   end
