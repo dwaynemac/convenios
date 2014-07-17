@@ -13,7 +13,7 @@ Convenios::Application.routes.draw do
   end
 
   namespace :api do
-    resources :deals, only: [:index]
+    resources :deals, only: [:index, :show]
   end
 
 
