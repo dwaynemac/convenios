@@ -28,6 +28,9 @@ gem 'formtastic-bootstrap'
 gem 'accounts_client', '~> 0.0.19'
 gem 'nucleo_client', '~> 0.0.3'
 
+gem 'carrierwave'
+gem 'cloudinary'
+
 group :development, :test do
   gem 'sqlite3'
 

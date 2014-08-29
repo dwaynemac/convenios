@@ -14,11 +14,16 @@
     <%- end -%>
   <%- end -%>
   <%= f.semantic_fields_for :business_attributes do |b| %>
-    <%= b.inputs do %>
+    <%= b.inputs t('deal.attributes.business') do %>
       <%- %W(name description phone email city address url lat lng).each do |att| -%>
         <%= b.input att, label: t("business.attributes.#{att}"), placeholder: t("business.attributes.#{att}_example", default: t("business.attributes.#{att}")) %>
       <%- end -%>
     <%- end -%>
   <%- end -%>
+
+  <%= f.inputs t("deal.attributes.deal_image") do %>
+    <%= f.input :deal_image %>
+  <%- end %>
+
   <%= f.actions %>
 <%- end -%>

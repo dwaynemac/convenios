@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716162237) do
+ActiveRecord::Schema.define(version: 20140829201513) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140716162237) do
     t.string   "cached_federation_name"
     t.integer  "local_user_id"
     t.integer  "local_account_id"
+    t.string   "deal_image"
   end
 
   create_table "users", force: true do |t|

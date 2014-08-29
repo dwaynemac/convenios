@@ -5,7 +5,9 @@ class Deal < ActiveRecord::Base
                   :local_user_id,
                   :local_account_id,
                   :business_id,
-                  :business_attributes
+                  :business_attributes,
+                  :deal_image
+
 
   belongs_to :user, foreign_key: :local_user_id
   validates_presence_of :user
@@ -20,6 +22,8 @@ class Deal < ActiveRecord::Base
   validates_presence_of :title
 
   before_save :set_federation
+
+  mount_uploader :deal_image, DealImageUploader
 
   def self.query(query_string)
     if query_string.blank?

@@ -7,3 +7,5 @@
 Procfile.dev
 *.swp
 config/application.yml
+config/cloudinary.yml
+public/uploads/*
