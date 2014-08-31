@@ -33,6 +33,10 @@ class DealsController < ApplicationController
     @deal.business = Business.new
   end
 
+
+  def edit
+  end
+
   def create
     @deal = Deal.new(deal_params)
     if @deal.save

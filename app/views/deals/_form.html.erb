@@ -1,0 +1,34 @@
+<%= semantic_form_for @deal, html: {class: 'form-horizontal'} do |f| -%>
+  
+  <div class="control-group">
+    <label class=" control-label"><%= t('deal.attributes.responsible') %></label>
+    <div class="controls">
+      <%= current_user.username %> (<%= current_user.current_account.name %>)
+      <% if @deal.new_record? %>
+        <%= f.hidden_field :local_user_id, value: current_user.id %>
+        <%= f.hidden_field :local_account_id, value: current_user.current_account.id %>
+      <% end %>
+    </div>
+  </div>
+  
+  <%= f.semantic_errors %>
+  <%= f.inputs do -%>
+    <%- %W(title description).each do |att| -%>
+      <%= f.input att, label: t("deal.attributes.#{att}"), placeholder: t("deal.attributes.#{att}_example", default: t("deal.attributes.#{att}")) %>
+    <%- end -%>
+    <%= f.input :category_id, as: :select, collection: Category.all %>
+  <%- end -%>
+  <%= f.semantic_fields_for :business do |b| %>
+    <%= b.inputs t('deal.attributes.business') do %>
+      <%- %W(name description phone email city address url lat lng).each do |att| -%>
+        <%= b.input att, label: t("business.attributes.#{att}"), placeholder: t("business.attributes.#{att}_example", default: t("business.attributes.#{att}")) %>
+      <%- end -%>
+    <%- end -%>
+  <%- end -%>
+
+  <%= f.inputs t("deal.attributes.deal_image") do %>
+    <%= f.input :deal_image %>
+  <%- end %>
+
+  <%= f.actions %>
+<%- end -%>

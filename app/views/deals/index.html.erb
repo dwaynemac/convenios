@@ -30,6 +30,11 @@
       <td><%= deal.responsible_account %>(<%= deal.responsible_user %>)</td>
       <td>
         <button type="button" class="btn btn-mini" data-toggle="showHide" data-target="#details-<%= deal.id %>">detalles</button>
+        <%- if can?(:update, deal) -%>
+          <%= link_to t('deals.index.edit_deal'),
+                      edit_deal_path(deal.id),
+                      class: 'btn btn-mini btn-danger' %>
+        <%- end -%>
         <%- if can?(:destroy,deal) -%>
           <%= link_to t('deals.index.cancel_deal'),
                       deal_path(deal.id),
