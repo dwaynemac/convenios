@@ -11,3 +11,16 @@ $("[data-toggle='showHide']").click (el) ->
     else
         target = $(this.getAttribute('href'))
     target.toggle();
+
+$("#deal_category_id").chosen
+  create_option: (name) ->
+    chosen = this
+    $.post "/categories.json",
+      category:
+        name: name
+    , (data) ->
+      chosen.append_option
+        value: data.id
+        text: data.name
+
+    persistent_create_option: true

@@ -72,6 +72,7 @@ class DealsController < ApplicationController
         :local_user_id,
         :local_account_id,
         :deal_image,
+        :category_id,
         business_attributes: [:name,:phone,:email,:url,:address,:city, :description, :lat, :lng]
     )
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829201513) do
+ActiveRecord::Schema.define(version: 20140830155136) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -33,6 +33,10 @@ ActiveRecord::Schema.define(version: 20140829201513) do
     t.decimal  "lng",         precision: 10, scale: 6
   end
 
+  create_table "categories", force: true do |t|
+    t.string "name"
+  end
+
   create_table "deals", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -44,7 +48,10 @@ ActiveRecord::Schema.define(version: 20140829201513) do
     t.integer  "local_user_id"
     t.integer  "local_account_id"
     t.string   "deal_image"
+    t.integer  "category_id"
   end
+
+  add_index "deals", ["category_id"], name: "index_deals_on_category_id"
 
   create_table "users", force: true do |t|
     t.string   "username"

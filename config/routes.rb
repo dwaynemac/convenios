@@ -6,6 +6,7 @@ Convenios::Application.routes.draw do
   end
 
   resources :businesses, only: [:update]
+  resources :categories, only: [:create]
   resources :deals do
     collection do
       get :my_federation

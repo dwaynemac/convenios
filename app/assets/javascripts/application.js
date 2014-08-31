@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require chosen_v1.1.0/chosen.jquery.min
 //= require best_in_place
 //= require_tree .

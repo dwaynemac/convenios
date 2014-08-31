@@ -24,6 +24,7 @@ es:
   deal:
     attributes:
       title: "Titulo"
+      category: "Category"
       description: "descripcion"
       responsible: "Responsable"
       title_example: "50% de descuento"

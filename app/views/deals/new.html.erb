@@ -12,6 +12,7 @@
     <%- %W(title description).each do |att| -%>
       <%= f.input att, label: t("deal.attributes.#{att}"), placeholder: t("deal.attributes.#{att}_example", default: t("deal.attributes.#{att}")) %>
     <%- end -%>
+    <%= f.input :category, as: :select, collection: Category.all %>
   <%- end -%>
   <%= f.semantic_fields_for :business_attributes do |b| %>
     <%= b.inputs t('deal.attributes.business') do %>

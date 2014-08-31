@@ -6,7 +6,8 @@ class Deal < ActiveRecord::Base
                   :local_account_id,
                   :business_id,
                   :business_attributes,
-                  :deal_image
+                  :deal_image,
+                  :category_id
 
 
   belongs_to :user, foreign_key: :local_user_id
@@ -25,6 +26,8 @@ class Deal < ActiveRecord::Base
 
   mount_uploader :deal_image, DealImageUploader
 
+  belongs_to :category
+
   def self.query(query_string)
     if query_string.blank?
       self.scoped
@@ -42,6 +45,7 @@ class Deal < ActiveRecord::Base
         title: title,
         description: description,
         business_name: business.name,
+        category_name: category.name,
         business: {
             name: business.name,
             description: business.description,

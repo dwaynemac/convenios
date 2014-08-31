@@ -15,6 +15,7 @@
 <table class="table table-responsive">
   <tr>
     <th>#</th>
+    <th><%= t('deal.attributes.category').capitalize %></th>
     <th><%= t('business.attributes.name').capitalize %></th>
     <th><%= t('deal.attributes.title').capitalize %></th>
     <th><%= t('deal.attributes.responsible_account').capitalize %></th>
@@ -23,6 +24,7 @@
   <%- @deals.each do |deal| -%>
     <tr>
       <td><%= deal.id %></td>
+      <td><%= bip deal, :category_id, type: :select, collection: [[nil,"None"]].concat(Category.all.map {|c| [c.id, c.name]}) %></td>
       <td><%= best_in_place_if can?(:update, deal.business), deal.business, :name, type: :input %></td>
       <td><%= bip deal, :title %></td>
       <td><%= deal.responsible_account %>(<%= deal.responsible_user %>)</td>

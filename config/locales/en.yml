@@ -24,6 +24,7 @@ en:
   deal:
     attributes:
       title: "Title"
+      category: "Category"
       description: "description"
       responsible_user: "Responsible Teacher"
   deals:
