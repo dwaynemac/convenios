@@ -18,7 +18,7 @@ class Ability
         user.in?(business.deals.map(&:user))
       end
       
-      if user.username == 'dwayne.macgowan'
+      if user.username == 'dwayne.macgowan' || user.username == 'luis.perichon'
         can :manage, :all
       end
     end
