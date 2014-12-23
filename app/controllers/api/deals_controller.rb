@@ -7,7 +7,10 @@ class Api::DealsController < ApplicationController
   respond_to :json
 
   def index
-    @deals = Deal.query(params[:q]).all
+    @deals = Deal.order(:category_id)
+                 .includes([:business,:category])
+                 .query(params[:q])
+                 .all
     respond_with @deals, :callback => params[:callback]
   end
 
