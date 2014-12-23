@@ -46,6 +46,7 @@ class Deal < ActiveRecord::Base
         description: description,
         business_name: business.name,
         category_name: category.name,
+        deal_image: deal_image.url,
         business: {
             name: business.name,
             description: business.description,
