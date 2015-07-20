@@ -72,7 +72,11 @@ class Deal < ActiveRecord::Base
 
   def set_federation
 
+    self.federation_id = 1
+    self.cached_federation_name = 'Argentina'
 
+=begin
+ --------- INTEGRATION WITH NUCLEO NOT WORKING --------
     if federation_id.nil? && account.present?
       nid = account.padma.nucleo_id
       if nid
@@ -91,6 +95,7 @@ class Deal < ActiveRecord::Base
         self.cached_federation_name= nil
       end
     end
+=end
 
   end
 

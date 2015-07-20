@@ -8,7 +8,7 @@ class DealsController < ApplicationController
     authorize! :read, Deal
     @deals = Deal.scoped
 
-    nid = current_user.current_account.padma.nucleo_id
+    # nid = current_user.current_account.padma.nucleo_id
     if nid
       s = NucleoClient::School.find(nid)
       redirect_to deals_path(federation_id: s.federation_id)
